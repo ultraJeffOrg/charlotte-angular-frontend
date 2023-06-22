@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: charlotte-angular-charlotte-angular-poi-map-app-dev
+  annotations:
+    argocd/app-name: charlotte-angular-charlotte-angular-poi-map-app-dev
+    backstage.io/kubernetes-id: charlotte-angular-charlotte-angular-poi-map-app-dev
+    backstage.io/kubernetes-namespace: charlotte-angular
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=charlotte-angular-charlotte-angular-poi-map-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: ultraJeffOrg/charlotte-angular-frontend
+    janus-idp.io/tekton-enabled: 'true'
+  tags:
+    - typescript
+    - angular
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.cluster-gqd95.gqd95.sandbox1540.opentlc.com/dev-pipelines/ns/charlotte-angular/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.cluster-gqd95.gqd95.sandbox1540.opentlc.com/k8s/ns/charlotte-angular/deployments/charlotte-angular-poi-map-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.cluster-gqd95.gqd95.sandbox1540.opentlc.com/#https://github.com/ultraJeffOrg/charlotte-angular-frontend?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: http://charlotte-angular-poi-map-app-charlotte-angular.apps.cluster-gqd95.gqd95.sandbox1540.opentlc.com
+      title: Map
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:default/ultrajeff"
+  system: workshop-system-charlotte-angular
+  consumesApis:
+    - gateway-api-charlotte-angular
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-charlotte-angular
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:default/ultrajeff"
